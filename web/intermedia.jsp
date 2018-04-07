@@ -30,5 +30,6 @@
 
     <body onload="javascript:alerta('<%=user.getNombres()%>','<%=cuerpo%>');">
         <form name="formData" method="post" action=""></form>
+        <!-- Prueba -->
     </body>
 </html>
