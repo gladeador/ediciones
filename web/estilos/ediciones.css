@@ -1,0 +1,99 @@
+/*menu superior*/
+.chromestyle{
+    font-family: Arial, Helvetica, sans-serif;	
+    font-size: 11px; 
+    font-style: normal; 
+    color: #000000;}
+
+.chromestyle ul{
+    border: 0px solid #BBBBBB;
+    width: 680px; 
+    background: url(barra.gif) center repeat-x;
+    padding: 8px 0; margin: 0; ext-align: center;
+}
+
+.chromestyle ul li{display: inline;}
+
+.chromestyle ul li a{
+    color: #333333; 
+    padding: 4px 7px; 
+    margin: 0; 
+    text-decoration: none; 
+    border-right: 1px solid #DADADA;}
+
+.dropmenudiv{
+    position:absolute; 
+    top: 0;
+    border: 1px solid #BBBBBB; 
+    border-bottom-width: 0;
+    font: normal 11px Arial, Helvetica, sans-serif;
+    line-height:15px;
+    z-index:100;
+    background-color: #ffffff;
+    width: 150px;
+    visibility: hidden;
+    filter: progid:DXImageTransform.Microsoft.Shadow(color=#333333, direction=135, strength=4);}
+
+.dropmenudiv a{
+    width: auto;
+    display: block;
+    text-indent: 3px;
+    border-bottom: 1px solid #BBB;
+    padding: 2px 0; 
+    font-weight: bold; 
+    color: black;}
+
+.dropmenudiv a:hover{background-color: #ebebeb;}
+
+
+/*scroll de la barra lateral*/
+.barra { scrollbar-3dlight-color:#ebebeb; scrollbar-arrow-color:#999999; scrollbar-base-color:white; scrollbar-darkshadow-color:#ebebeb; scrollbar-face-color:white;
+         scrollbar-highlight-color:white; scrollbar-shadow-color: #ebebeb }
+
+/*menu superior/Inferior estático*/
+.menuSuperior 	{	font-family: Arial, Helvetica, sans-serif;	font-size: 11px;	font-style: normal;	color: #222222;}
+.menuInferior 	{	font-family: Arial, Helvetica, sans-serif;	font-size: 10px;         font-style: normal;	color: #cccccc;}
+.pieFirma 	{	font-family: trebuchet ms, Arial;  		font-size: 8pt; 	font-weight: normal; color:#666666;}
+
+/*textos*/
+.txtNormal  	{	font-family: Arial, Helvetica, sans-serif;	font-size: 11px;	font-style: normal;	color: #999999;}
+.txtNormalNegrit{	font-family: Arial, Helvetica, sans-serif;	font-size: 11px;	font-style: normal;	color: #999999;	font-weight: bold;}
+.txtIntermedio 	{	font-family: Arial, Helvetica, sans-serif;	font-size: 11px;	font-style: normal;	color: #999999;}
+.txtResaltadoR	{	font-family: Arial, Helvetica, sans-serif;	font-size: 11px;	font-style: normal;	color: #990000;}
+.txtResaltadoV	{	font-family: Arial, Helvetica, sans-serif;	font-size: 11px;	font-style: normal;	color: #229999;}
+.txtResSRa	{	font-family: Arial, Helvetica, sans-serif;	font-size: 11px;	font-style: normal;	color: #FFFFFF; background-color: #0066FF;}
+.txtResSRb	{	font-family: Arial, Helvetica, sans-serif;	font-size: 11px;	font-style: normal;	color: #FFFFFF; background-color: #333333;}
+.txtResSRc	{	font-family: Arial, Helvetica, sans-serif;	font-size: 11px;	font-style: normal;	color: #FFFFFF; background-color: #666666;}
+.txtResSRd	{	font-family: Arial, Helvetica, sans-serif;	font-size: 11px;	font-style: normal;	color: #FFFFFF; background-color: #999999;}
+.txtMistral     {       font-family: Mistral;                           font-size: 36px;        font-style: normal;     color: #000066;}
+.txtMensaje     {       font-family: Times New Roman, Times, serif;     font-size: 30px;        font-style: normal;     color: #000066;}
+
+/*formularios*/
+.cuadroTexto        {	font-family: Arial, Helvetica, sans-serif;	font-size: 10px;        font-style: normal;	color: #111111}
+.cuadroTextoRojo    {	font-family: Arial, Helvetica, sans-serif;	font-size: 10px;        font-style: normal;	color: #990000}
+.cuadroTextoAzul    {	font-family: Arial, Helvetica, sans-serif;	font-size: 10px;        font-style: normal;	color: #000093}
+.cuadroTextoAzul_12px{	font-family: Arial, Helvetica, sans-serif;	font-size: 12px;        font-style: normal;	color: #000093}
+.cuadroTextoNegrit  {	font-family: Arial, Helvetica, sans-serif;	font-size: 10px;        font-style: normal;	color: #111111;	font-weight: bold;}
+.botones            {	font-family: Arial, Helvetica, sans-serif;	font-size: 10px;        font-style: normal;	color: #FFFFFF; background-color: #999999;}
+
+/*titulos*/
+.titulos 	{	font-family: trebuchet ms, Arial;  		font-size: 11pt; 	font-weight: normal; color:#333333;}
+.subTitulos 	{	font-family: trebuchet ms, Arial;  		font-size: 10pt; 	font-weight: normal; color:#666666;}
+.subTitulosAzul {	font-family: trebuchet ms, Arial;  		font-size: 9pt; 	font-weight: normal; color:#000093;}
+.titulosDestac	{	font-family: trebuchet ms, Arial;  		font-size: 11pt; 	font-weight: normal; color:#FFFFFF;}
+
+/*vinculos*/
+a:link 		{	text-decoration: none; 	color: #000000;}
+a:visited 	{	text-decoration: none;	color: #000000;}
+a:hover 	{	text-decoration: none;	color: #FF0000;}
+a:active 	{	text-decoration: none;	color: #000000;}
+.txtNormalNegro {	font-family: Arial, Helvetica, sans-serif;	font-size: 11px;	font-style: normal;	color: #000000;}
+
+/*fondos*/
+.fondoForm {
+    background-attachment: fixed;
+    background-image: url(../images/fondo.jpg);}
+
+/*tablas*/
+.innera {  width: 100%; height: 100px;  OVERFLOW: auto;  background-color: #E8F3FF;}
+

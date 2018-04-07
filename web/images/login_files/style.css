@@ -1,0 +1,284 @@
+
+img,td,div
+{
+	behavior: url("/Include/iepngfix.htc");
+}
+
+.PAGETITLE {
+	BACKGROUND-COLOR: white;
+	FONT-WEIGHT: bold; 
+	FONT-SIZE: 25px; 
+	COLOR: #004b84; 
+	FONT-FAMILY: Tahoma;
+}
+    .bgcolor
+    {
+       /* background-color:#ebf2f6 ;
+        filter: alpha(opacity=30);
+        -moz-opacity: .30;
+        -khtml-opacity: 0.30;
+        opacity: .30;
+        width:100%;
+        height:100%;
+        z-index:-100;*/
+    }
+    .bgcolorClear
+    {
+        filter: alpha(opacity=100);
+        -moz-opacity: 1.0;
+        -khtml-opacity: 1.0;
+        opacity: 1.0;
+    }
+    
+    .tl {background-image: url(../../images/index/top_left_corner.png);background-repeat:no-repeat;width:27px;height:27px;}
+    .tc {background-image: url(../../images/index/horizontal_shadow_top.png);background-repeat:repeat-x;}
+    .tr {background-image: url(../../images/index/top_right_corner.png);background-repeat:no-repeat;width:27px;height:27px;}
+    .ml {background-image: url(../../images/index/vertical_shadow_left.png);background-repeat:repeat-y;}
+    .mc {}
+    .mr {background-image: url(../../images/index/vertical_shadow_right.png);background-repeat:repeat-y;background-position:right;}
+    .bl {background-image: url(../../images/index/bottom_left_corner.png);background-repeat:no-repeat;width:27px;height:28px;}
+    .bc {background-image: url(../../images/index/horizontal_shadow_down.png);background-repeat:repeat-x;background-position:bottom;}
+    .br {background-image: url(../../images/index/bottom_right_corner.png);background-repeat:no-repeat;background-position:right;width:27px;height:28px;}
+    .clear {font-size: 1px; height: 1px}
+    
+    .stl {background-image: url(../../images/index/small_box_top_left_corner.png);background-repeat:no-repeat;width:13px;height:13px;}
+    .stc {background-image: url(../../images/index/small_horizontal_shadow_top.png);background-repeat:repeat-x;}
+    .str {background-image: url(../../images/index/small_box_top_right_corner.png);background-repeat:no-repeat;width:14px;height:13px;}
+    .sml {background-image: url(../../images/index/small_vertical_shadow_left.png);background-repeat:repeat-y;}
+    .smc {}
+    .smr {background-image: url(../../images/index/small_vertical_shadow_right.png);background-repeat:repeat-y;background-position:right;}
+    .sbl {background-image: url(../../images/index/small_box_bottom_left_corner.png);background-repeat:no-repeat;width:13px;height:12px;}
+    .sbc {background-image: url(../../images/index/small_horizontal_shadow_bottom.png);background-repeat:repeat-x;background-position:bottom;}
+    .sbr {background-image: url(../../images/index/small_box_bottom_right_corner.png);background-repeat:no-repeat;width:14px;height:12px;}
+
+    .stlmo {background-image: url(../../images/index/small_box_top_left_corner_mouseover.png);background-repeat:no-repeat;width:13px;height:13px;cursor:hand;}
+    .stcmo {background-image: url(../../images/index/small_horizontal_shadow_top_mouseover.png);background-repeat:repeat-x;cursor:hand;}
+    .strmo {background-image: url(../../images/index/small_box_top_right_corner_mouseover.png);background-repeat:no-repeat;width:14px;height:13px;cursor:hand;}
+    .smlmo {background-image: url(../../images/index/small_vertical_shadow_left_mouseover.png);background-repeat:repeat-y;cursor:hand;}
+    .smcmo {cursor:hand}
+    .smrmo {background-image: url(../../images/index/small_vertical_shadow_right_mouseover.png);background-repeat:repeat-y;background-position:right;cursor:hand;}
+    .sblmo {background-image: url(../../images/index/small_box_bottom_left_corner_mouseover.png);background-repeat:no-repeat;width:13px;height:12px;cursor:hand;}
+    .sbcmo {background-image: url(../../images/index/small_horizontal_shadow_bottom_mouseover.png);background-repeat:repeat-x;background-position:bottom;cursor:hand;}
+    .sbrmo {background-image: url(../../images/index/small_box_bottom_right_corner_mouseover.png);background-repeat:no-repeat;width:14px;height:12px;cursor:hand;}
+    
+    .ssep{background-image:url(../../images/index/small_seperator.png);background-repeat:no-repeat;width:4px;background-position:center center;} 
+    .bsep{background-image:url(../../images/index/big_seperator.png);background-repeat:no-repeat;width:8px;height:138px;background-position:center center;} 
+    
+    .IHL {background-image: url(../../images/index/bs_top_left_corner.png);background-repeat:no-repeat;width:6px;height:39px;}
+    .IHC {background-image: url(../../images/index/bs_top_title_bg.png);background-repeat:repeat-x;}
+    .IHR {background-image: url(../../images/index/bs_top_right_corner.png);background-repeat:no-repeat;width:6px;height:39px;}
+    
+    .logintextbox
+    {
+        padding:3px 4px 0 4px;
+    	background-image:url('../../images/index/txt_box_bg.png');
+    	background-repeat:repeat-x;
+    	height:21px;width:180px;
+    	border-left :1px solid #7d7d7b;
+		border-right:1px solid #7d7d7b;
+		border-top:0;
+		border-bottom:0;
+	    FONT-WEIGHT: normal;
+        FONT-SIZE: 12px;
+        FONT-FAMILY: Tahoma;
+        
+             }
+    .loginNote
+    {
+     font-size:10px;
+     color:#7d7d7d;
+     font-family:Tahoma;
+    	}
+    .forgotPass a a:hover
+    {
+     font-size:10px;
+     color:#404040;
+     text-decoration:underline;
+     font-family:Tahoma;
+    	}
+        
+        .btnl{background-image:url(../../images/index/login_button_left_corners.png);background-repeat:no-repeat;width:32px;height:28px;cursor:hand;}
+        .btnc{background-image:url(../../images/index/login_button_bg.png);background-repeat:repeat-x;height:28px;align:center;cursor:hand;}
+        .btnr{background-image:url(../../images/index/login_button_right_corners.png);background-repeat:no-repeat;width:8px;height:28px;cursor:hand;}
+
+ #background
+ {
+	   position:fixed;   
+	   _position:absolute; 
+	   /* hack for internet explorer 6*/  
+	   height:100%;   
+	   width:100%;   
+	   top:0;   
+	   left:0;   
+	   background:#000000;   
+	   border:1px solid #cecece;   
+	   z-index:1;   
+	}  
+* html .bodyBGOuter
+ {	border-left:1024px solid #ffffff;
+	} 
+* html .bodyBGInner
+ {	margin-left:-1024px;
+	} 
+ .popupBackground
+{
+	display: none;
+	position: fixed;
+	_position: absolute; /* hack for internet explorer 6*/
+	height: 100%;
+	width: 500%;
+	top: 0;
+	left: 0;
+	background: #000000;
+	border: 1px solid #cecece;
+	z-index: 10100;
+}   
+ .popupDiv
+ {
+	display:none;   
+	position:fixed;   
+	_position:absolute; 
+	/* hack for internet explorer 6*/  
+	/*height:384px;   
+	width:408px; */  
+	background:#FFFFFF;   
+	border:0px solid #cecece;   
+	z-index:10101;   
+	padding:0px;   
+	font-size:13px;   
+	}   
+	.popupDiv h1
+	{
+		text-align:left;   
+		color:#6FA5FD;   
+		font-size:22px;   
+		font-weight:700;   
+		border-bottom:0px dotted #D3D3D3;   
+		padding-bottom:0px;   
+		margin-bottom:0px;   
+		}   
+	.popupClose
+	{
+		font-size:14px;   
+		line-height:14px;   
+		right:6px;   
+		top:4px;   
+		position:absolute;   
+		color:#6fa5fd;   
+		font-weight:700;   
+		display:block;   
+		}   
+	.popProc
+	{
+		font-size:14px;   
+		line-height:14px;   
+		left:6px;   
+		top:4px;   
+		position:absolute;   
+		color:#6fa5fd;   
+		font-weight:700;   
+		display:block;   
+		}   
+	#button
+	{
+		text-align:center;   
+		margin:100px;   
+		}
+	.AlertMessage
+	{
+		font-family:Tahoma;
+		font-size:11px;
+		color:#4f4f4f;}  
+	.Warning
+	{
+		font-family:Tahoma;
+		font-size:13px;
+		color:#fe0000;
+		font-weight:bold;}  
+	.Success
+	{
+		font-family:Tahoma;
+		font-size:13px;
+		color:#69cb5a;
+		font-weight:bold;}  
+	.Header
+	{
+		font-family:Tahoma;
+		font-size:13px;
+		color:#4f4f4f;
+		font-weight:bold;}
+	.Content
+	{
+		 font-size: 10px; color: #4f4f4f; line-height: 16px;font-family: Tahoma;
+		 }
+.LoginBG
+{
+	background-image:url('../../images/index/us_cannada_img.png');
+	background-repeat:no-repeat;
+	overflow:visible;
+	min-width:1024px;
+	width:100%;
+	height:460px;
+	background-position:center center;
+	
+	}
+	.LOGINHDR
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 12px;
+    COLOR: #333366;
+    FONT-FAMILY: Tahoma;
+}
+.LOGINLBL
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 11px;
+    COLOR: Black;
+    FONT-FAMILY: Tahoma;
+}
+.LOGINERR
+{
+    FONT-WEIGHT: 600;
+    FONT-SIZE: 10px;
+    COLOR: red;
+    FONT-FAMILY: Tahoma;
+}
+.LOGINTEXT
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 10px;
+    COLOR: #000066;
+    FONT-FAMILY: Tahoma;
+}
+.LOGINLEFT
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 11px;
+    COLOR: white;
+    FONT-FAMILY: Tahoma;
+}
+.LOGINLEFTHDR
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 12px;
+    COLOR: gold;
+    FONT-FAMILY: Tahoma;
+}
+IMG {
+    border: none;
+}
+.loginlbl1
+{
+font-size: 11px;
+color: #125899;
+font-family: Tahoma;
+}
+.loginHelp
+{
+	font-size: 10px;
+	color: #868686;
+	font-family: Verdana;
+	}
+
+
+

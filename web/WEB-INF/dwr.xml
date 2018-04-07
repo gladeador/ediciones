@@ -1,0 +1,134 @@
+<!DOCTYPE dwr PUBLIC
+"-//GetAhead Limited//DTD Direct Web Remoting 1.0//EN"
+"http://www.getahead.ltd.uk/dwr/dwr10.dtd">
+
+<dwr>
+    <allow>
+        
+        <create creator="new" javascript="Clientes">
+            <param name="class" value="cl.ediciones.controller.clientes.ClientesDWR"/>
+        </create>
+        
+        <create creator="new" javascript="Usuarios">
+            <param name="class" value="cl.ediciones.controller.usuarios.UsuariosDWR"/>
+        </create>
+        
+        <create creator="new" javascript="Fono_Contacto">
+            <param name="class" value="cl.ediciones.controller.fono_contacto.Fono_ContactoDWR"/>
+        </create>
+        
+        <create creator="new" javascript="Productos">
+            <param name="class" value="cl.ediciones.controller.productos.ProductosDWR"/>
+        </create>
+        
+        <create creator="new" javascript="Stock">
+            <param name="class" value="cl.ediciones.controller.stock.StockDWR"/>
+        </create>
+        
+         <create creator="new" javascript="Bodega">
+            <param name="class" value="cl.ediciones.controller.bodega.BodegaDWR"/>
+        </create>
+        
+        <create creator="new" javascript="Salidas">
+            <param name="class" value="cl.ediciones.controller.salidas.SalidasDWR"/>
+        </create>
+        
+        <create creator="new" javascript="Guia_Despacho">
+            <param name="class" value="cl.ediciones.controller.ventas.Guia_DespachoDWR"/>
+        </create>
+        
+        <create creator="new" javascript="Guia_Productos">
+            <param name="class" value="cl.ediciones.controller.guia_productos.Guia_ProductosDWR"/>
+        </create>
+        
+        <create creator="new" javascript="Gastos">
+            <param name="class" value="cl.ediciones.controller.gastos.GastosDWR"/>
+        </create>
+        
+        <create creator="new" javascript="Cuentas_Base">
+            <param name="class" value="cl.ediciones.controller.cuentas_base.Cuentas_BaseDWR"/>
+        </create>
+        
+        <create creator="new" javascript="Proveedor">
+            <param name="class" value="cl.ediciones.controller.proveedores.ProveedorDWR"/>
+        </create>
+        
+        <create creator="new" javascript="Fono_Proveedor">
+            <param name="class" value="cl.ediciones.controller.fono_contacto.Fono_ProveedorDWR"/>
+        </create>
+        
+        <create creator="new" javascript="Factura">
+            <param name="class" value="cl.ediciones.controller.facturacion.FacturaDWR"/>
+        </create>
+        
+        <create creator="new" javascript="Boleta">
+            <param name="class" value="cl.ediciones.controller.boleta.BoletaDWR"/>
+        </create>
+        
+        <create creator="new" javascript="NotaCredito">
+            <param name="class" value="cl.ediciones.controller.nota_credito.NotaCreditoDWR"/>
+        </create>
+        
+        <create creator="new" javascript="Factura_Productos">
+            <param name="class" value="cl.ediciones.controller.factura_productos.Factura_ProductosDWR"/>
+        </create>
+        
+        <create creator="new" javascript="Cheque">
+            <param name="class" value="cl.ediciones.controller.pagos.cheque.ChequeDWR"/>
+        </create>
+        
+        <create creator="new" javascript="Cheque_Pago">
+            <param name="class" value="cl.ediciones.controller.pagos.cheque.Cheque_PagoDWR"/>
+        </create>
+        
+        <create creator="new" javascript="Cuota">
+            <param name="class" value="cl.ediciones.controller.pagos.cuota.CuotaDWR"/>
+        </create>
+        
+        <create creator="new" javascript="Letra">
+            <param name="class" value="cl.ediciones.controller.pagos.letra.LetraDWR"/>
+        </create>
+        
+        <create creator="new" javascript="Protesto">
+            <param name="class" value="cl.ediciones.controller.protesto.ProtestoDWR"/>
+        </create>
+        
+        <create creator="new" javascript="Boleta_Productos">
+            <param name="class" value="cl.ediciones.controller.boleta_productos.Boleta_ProductosDWR"/>
+        </create>
+        
+        <create creator="new" javascript="NotaCredito_Productos">
+            <param name="class" value="cl.ediciones.controller.factura_productos.NotaCredito_ProductosDWR"/>
+        </create>
+        
+        <create creator="new" javascript="Tipo_Envio">
+            <param name="class" value="cl.ediciones.controller.tipo_envio.Tipo_EnvioDWR"/>
+        </create>
+        
+        <create creator="new" javascript="Region">
+            <param name="class" value="cl.ediciones.controller.region.RegionDWR"/>
+        </create>
+        
+        <create creator="new" javascript="Comuna">
+            <param name="class" value="cl.ediciones.controller.comuna.ComunaDWR"/>
+        </create>
+        
+        <create creator="new" javascript="Banco">
+            <param name="class" value="cl.ediciones.controller.banco.BancoDWR"/>
+        </create>
+        
+        <create creator="new" javascript="Perfil">
+            <param name="class" value="cl.ediciones.controller.perfil.PerfilDWR"/>
+        </create>
+        
+        <create creator="new" javascript="Perfil_Menu">
+            <param name="class" value="cl.ediciones.controller.perfil.Perfil_MenuDWR"/>
+        </create>
+        
+        <create creator="new" javascript="Comprobante">
+            <param name="class" value="cl.ediciones.controller.comprobante.ComprobanteDWR"/>
+        </create>
+        
+        <convert converter="bean" match="cl.ediciones.model.*"/>
+    </allow>
+</dwr>

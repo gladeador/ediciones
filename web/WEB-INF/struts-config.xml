@@ -1,0 +1,457 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+
+
+<struts-config>
+    <action-mappings>
+        <!-- autentificacion/perfiles -->
+        <action path="/controller/autentificar" type="cl.ediciones.autentificacion.LoginAction">
+            <forward name="intermedia" path="/intermedia.jsp"/>
+            <forward name="error" path="/index.jsp"/>
+        </action>
+        
+        <!-- autentificacion/perfiles -->
+        <action path="/menuAdmin" parameter="/WEB-INF/menuAdmin.jsp" type="org.apache.struts.actions.ForwardAction"/>
+        <action path="/menuUsuario" parameter="/WEB-INF/menuUsuario.jsp" type="org.apache.struts.actions.ForwardAction"/>
+        <action path="/cuerpo" parameter="/WEB-INF/cuerpo.jsp" type="org.apache.struts.actions.ForwardAction"/>
+        <action path="/construccion" parameter="/WEB-INF/construccion.jsp" type="org.apache.struts.actions.ForwardAction"/>
+        
+        <!--MENU-->
+        <action path="/banner"  parameter="/WEB-INF/menu/banner.jsp" type="org.apache.struts.actions.ForwardAction"/>
+        <action path="/menu"    parameter="/WEB-INF/menu/menu.jsp" type="org.apache.struts.actions.ForwardAction"/>
+        <action path="/centro"  parameter="/WEB-INF/menu/centro.jsp" type="org.apache.struts.actions.ForwardAction"/>
+        <action path="/derecha" parameter="/WEB-INF/menu/derecha.jsp" type="org.apache.struts.actions.ForwardAction"/>
+        <action path="/index"   parameter="/index.jsp" type="org.apache.struts.actions.ForwardAction"/>
+        
+        <action path="/vistas/CambioClave" parameter="/user/cambio_clave.jsp" type="org.apache.struts.actions.ForwardAction"/>
+        <action path="/exitoCambioClave" parameter="/user/exito_cambio_clave.jsp" type="org.apache.struts.actions.ForwardAction"/>
+        
+        <action path="/controller/CambioClave" scope="request" type="cl.ediciones.autentificacion.Cambio_Clave">
+            <forward name="CambioClave" path="/exitoCambioClave.ed" />
+        </action>
+
+        <action path="/autentificacion/CerrarSesionTodos" scope="request" type="cl.ediciones.autentificacion.CerrarSesionTodos">
+            <forward name="CerrarSesionTodos" path="/index.jsp" />
+        </action>
+        
+        
+        <!-- CLIENTES -->
+        <action path="/controller/AgregarClientes" scope="request" type="cl.ediciones.controller.clientes.Agregar_ClientesAction">
+            <forward name="AgregarClientes" path="/vistas/AgregarClientes.ed" />
+        </action>
+        
+        <action path="/controller/ActualizarClientes" scope="request" type="cl.ediciones.controller.clientes.Actualizar_ClientesAction">
+            <forward name="ActualizarClientes" path="/WEB-INF/clientes/actualizar_clientes.jsp" />
+        </action>
+        
+        <action path="/controller/ModificarClientes" scope="request" type="cl.ediciones.controller.clientes.Modificar_ClientesAction">
+            <forward name="ModificarClientes" path="/controller/ActualizarClientes.ed" />
+        </action>
+        
+        <action path="/controller/EliminarClientes" scope="request" type="cl.ediciones.controller.clientes.Eliminar_ClientesAction">
+            <forward name="EliminarClientes" path="/controller/ActualizarClientes.ed" />
+        </action>
+        
+        <action path="/vistas/AgregarClientes" parameter="/WEB-INF/clientes/agregar_clientes.jsp" type="org.apache.struts.actions.ForwardAction"/>
+        <action path="/vistas/ModificarClientes" parameter="/WEB-INF/clientes/modificar_clientes.jsp" type="org.apache.struts.actions.ForwardAction"/>
+        
+        <!-- FIN CLIENTES -->
+        
+        
+        <!-- USUARIOS -->
+        <action path="/controller/AgregarUsuarios" scope="request" type="cl.ediciones.controller.usuarios.Agregar_UsuariosAction">
+            <forward name="AgregarUsuarios" path="/WEB-INF/usuarios/resp_agregar_usuarios.jsp" />
+        </action>
+        
+        <action path="/controller/ActualizarUsuarios" scope="request" type="cl.ediciones.controller.usuarios.Actualizar_UsuariosAction">
+            <forward name="ActualizarUsuarios" path="/WEB-INF/usuarios/actualizar_usuarios.jsp" />
+        </action>
+        
+        <action path="/controller/ModificarUsuarios" scope="request" type="cl.ediciones.controller.usuarios.Modificar_UsuariosAction">
+            <forward name="ModificarUsuarios" path="/controller/ActualizarUsuarios.ed" />
+        </action>
+        
+        <action path="/controller/EliminarUsuarios" scope="request" type="cl.ediciones.controller.usuarios.Eliminar_UsuariosAction">
+            <forward name="EliminarUsuarios" path="/controller/ActualizarUsuarios.ed" />
+        </action>
+        
+        <action path="/vistas/AgregarUsuarios" parameter="/WEB-INF/usuarios/agregar_usuarios.jsp" type="org.apache.struts.actions.ForwardAction"/>
+        <action path="/vistas/ModificarUsuarios" parameter="/WEB-INF/usuarios/modificar_usuarios.jsp" type="org.apache.struts.actions.ForwardAction"/>
+        
+        <!-- FIN USUARIOS -->
+        
+        
+        <!-- PRODUCTOS -->
+        <action path="/controller/AgregarProductos" scope="request" type="cl.ediciones.controller.productos.Agregar_ProductosAction">
+            <forward name="AgregarProductos" path="/vistas/AgregarProductos.ed" />
+        </action>
+        
+        <action path="/controller/ActualizarProductos" scope="request" type="cl.ediciones.controller.productos.Actualizar_ProductosAction">
+            <forward name="ActualizarProductos" path="/WEB-INF/productos/actualizar_productos.jsp" />
+        </action>
+        
+        <action path="/controller/ModificarProductos" scope="request" type="cl.ediciones.controller.productos.Modificar_ProductosAction">
+            <forward name="ModificarProductos" path="/controller/ActualizarProductos.ed" />
+        </action>
+        
+        <action path="/controller/EliminarProductos" scope="request" type="cl.ediciones.controller.productos.Eliminar_ProductosAction">
+            <forward name="EliminarProductos" path="/controller/ActualizarProductos.ed" />
+        </action>
+        
+        <action path="/vistas/AgregarProductos" parameter="/WEB-INF/productos/agregar_productos.jsp" type="org.apache.struts.actions.ForwardAction"/>
+        <action path="/vistas/ModificarProductos" parameter="/WEB-INF/productos/modificar_productos.jsp" type="org.apache.struts.actions.ForwardAction"/>
+        
+        <!-- FIN PRODUCTOS -->
+        
+        
+        <!-- STOCK -->
+        <action path="/controller/AgregarStockProducto" scope="request" type="cl.ediciones.controller.stock.Agregar_Stock_ProductoAction">
+            <forward name="AgregarStockProducto" path="/vistas/AgregarStockProducto.ed" />
+        </action>
+        
+        <action path="/controller/ModificarStockProducto" scope="request" type="cl.ediciones.controller.stock.Modificar_Stock_ProductoAction">
+            <forward name="ModificarStockProducto" path="/controller/VerStockHistorico.ed" />
+        </action>
+        
+        <action path="/controller/VerStockHistorico" scope="request" type="cl.ediciones.controller.stock.Ver_Stock_HistoricoAction">
+            <forward name="VerStockHistorico" path="/WEB-INF/stock/ver_stock_historico.jsp" />
+        </action>
+        
+        <action path="/vistas/AgregarStockProducto" parameter="/WEB-INF/stock/agregar_stock_producto.jsp" type="org.apache.struts.actions.ForwardAction"/>
+        <action path="/vistas/ModificarStockProducto" parameter="/WEB-INF/stock/modificar_stock_producto.jsp" type="org.apache.struts.actions.ForwardAction"/>
+        <action path="/vistas/BuscarLibroCompras" parameter="/WEB-INF/stock/busca_libro_compras.jsp" type="org.apache.struts.actions.ForwardAction"/>
+        
+        <!-- FIN STOCK -->
+        
+        
+        <!-- SALIDAS -->
+        <action path="/controller/AgregarSalidas" scope="request" type="cl.ediciones.controller.salidas.Agregar_SalidasAction">
+            <forward name="AgregarSalidas" path="/vistas/AgregarSalidas.ed" />
+        </action>
+        
+        <action path="/controller/ModificarSalidas" scope="request" type="cl.ediciones.controller.salidas.Modificar_SalidasAction">
+            <forward name="ModificarSalidas" path="/vistas/ActualizarSalidas.ed" />
+        </action>
+        
+        <action path="/controller/EliminarSalidas" scope="request" type="cl.ediciones.controller.salidas.Eliminar_SalidasAction">
+            <forward name="EliminarSalidas" path="/controller/ActualizarSalidas.ed" />
+        </action>
+        
+        <action path="/vistas/AgregarSalidas" parameter="/WEB-INF/salidas/agregar_salidas.jsp" type="org.apache.struts.actions.ForwardAction"/>
+        <action path="/vistas/ActualizarSalidas" parameter="/WEB-INF/salidas/actualizar_salidas.jsp" type="org.apache.struts.actions.ForwardAction"/>
+        <action path="/vistas/ModificarSalidas" parameter="/WEB-INF/salidas/modificar_salidas.jsp" type="org.apache.struts.actions.ForwardAction"/>
+        
+        <!-- FIN SALIDAS -->
+        
+        
+        <!-- VENTAS -->
+        <action path="/controller/ActualizarGuiaDespacho" scope="request" type="cl.ediciones.controller.ventas.Actualizar_Guia_DespachoAction">
+            <forward name="ActualizarGuiaDespacho" path="/WEB-INF/ventas/actualizar_guia_despacho.jsp" />
+        </action>
+        
+        <action path="/controller/EliminarGuiaDespacho" scope="request" type="cl.ediciones.controller.ventas.Eliminar_Guia_DespachoAction">
+            <forward name="EliminarGuiaDespacho" path="/controller/ActualizarGuiaDespacho.ed" />
+        </action>
+        
+        <action path="/controller/EmitirGuiaDespacho" scope="request" type="cl.ediciones.controller.ventas.Emitir_Guia_DespachoAction">
+            <forward name="EmitirGuiaDespacho" path="/controller/ActualizarGuiaDespacho.ed" />
+        </action>
+        
+        <action path="/vistas/AgregarGuiaDespacho" parameter="/WEB-INF/ventas/agregar_guia_despacho.jsp" type="org.apache.struts.actions.ForwardAction"/>
+        <action path="/vistas/ModificarGuiaDespacho" parameter="/WEB-INF/ventas/modificar_guia_despacho.jsp" type="org.apache.struts.actions.ForwardAction"/>
+        
+        <!-- FIN VENTAS -->
+        
+        
+        <!-- GASTOS -->
+        <action path="/controller/AgregarGastos" scope="request" type="cl.ediciones.controller.gastos.Agregar_GastosAction">
+            <forward name="AgregarGastos" path="/WEB-INF/gastos/exito_agregar.jsp" />
+        </action>
+        
+        <action path="/controller/ModificarGastos" scope="request" type="cl.ediciones.controller.gastos.Modificar_GastosAction">
+            <forward name="ModificarGastos" path="/WEB-INF/gastos/exito_modificar.jsp" />
+        </action>
+        
+        <action path="/controller/EliminarGastos" scope="request" type="cl.ediciones.controller.gastos.Eliminar_GastosAction">
+            <forward name="EliminarGastos" path="/WEB-INF/gastos/exito_eliminar.jsp" />
+        </action>
+        
+        <action path="/vistas/AgregarGastos" parameter="/WEB-INF/gastos/agregar_gastos.jsp" type="org.apache.struts.actions.ForwardAction"/>
+        <action path="/vistas/ActualizarGastos" parameter="/WEB-INF/gastos/actualizar_gastos.jsp" type="org.apache.struts.actions.ForwardAction"/>
+        <action path="/vistas/ModificarGastos" parameter="/WEB-INF/gastos/modificar_gastos.jsp" type="org.apache.struts.actions.ForwardAction"/>
+        
+        <!-- FIN GASTOS -->
+        
+        
+        <!-- CUENTAS BASE -->
+        
+        <action path="/vistas/AgregarCuentasBase" parameter="/WEB-INF/cuentas_base/agregar_cuentas_base.jsp" type="org.apache.struts.actions.ForwardAction"/>
+        
+        <!-- FIN CUENTAS BASE -->
+        
+        
+        <!-- PROVEEDEORES -->
+        <action path="/controller/AgregarProveedor" scope="request" type="cl.ediciones.controller.proveedores.Agregar_ProveedorAction">
+            <forward name="AgregarProveedor" path="/WEB-INF/proveedores/resp_agregar_Proveedor.jsp" />
+        </action>
+        
+        <action path="/controller/ActualizarProveedor" scope="request" type="cl.ediciones.controller.proveedores.Actualizar_ProveedorAction">
+            <forward name="ActualizarProveedor" path="/WEB-INF/proveedores/actualizar_Proveedor.jsp" />
+        </action>
+        
+        <action path="/controller/ModificarProveedor" scope="request" type="cl.ediciones.controller.proveedores.Modificar_ProveedorAction">
+            <forward name="ModificarProveedor" path="/controller/ActualizarProveedor.ed" />
+        </action>
+        
+        <action path="/controller/EliminarProveedor" scope="request" type="cl.ediciones.controller.proveedores.Eliminar_ProveedorAction">
+            <forward name="EliminarProveedor" path="/controller/ActualizarProveedor.ed" />
+        </action>
+        
+        
+        <action path="/vistas/AgregarProveedor" parameter="/WEB-INF/proveedores/agregar_Proveedor.jsp" type="org.apache.struts.actions.ForwardAction"/>
+        <action path="/vistas/ModificarProveedor" parameter="/WEB-INF/proveedores/modificar_Proveedor.jsp" type="org.apache.struts.actions.ForwardAction"/>
+        
+        <!-- FIN PROVEEDEORES -->
+        
+        
+        <!-- FACTURACIÓN -->
+        <action path="/controller/ActualizaFactura" scope="request" type="cl.ediciones.controller.facturacion.Actualizar_FacturaAction">
+            <forward name="ActualizaFactura" path="/WEB-INF/facturacion/actualizar_factura.jsp" />
+        </action>
+        
+        <action path="/controller/ActualizaFacturaCriterios" scope="request" type="cl.ediciones.controller.facturacion.Actualizar_Factura_CriteriosAction">
+            <forward name="ActualizaFactura" path="/WEB-INF/facturacion/actualizar_factura.jsp" />
+        </action>
+        
+        <action path="/controller/ModificarFactura" type="cl.ediciones.controller.facturacion.ModificarFacturaAction">
+            <forward name="ModificarFactura" path="/controller/ActualizaFactura.ed" />
+        </action>
+        
+        <action path="/controller/EliminaFactura" scope="request" type="cl.ediciones.controller.facturacion.Elimina_FacturaAction">
+            <forward name="EliminaFactura" path="/controller/ActualizaFactura.ed" />
+        </action>
+    
+        <action path="/controller/AnulaFactura" scope="request" type="cl.ediciones.controller.facturacion.Anula_FacturaAction">
+            <forward name="AnulaFactura" path="/controller/ActualizaFactura.ed" />
+        </action>
+    
+        <action path="/controller/EmitirFactura" scope="request" type="cl.ediciones.controller.facturacion.Emitir_FacturaAction">
+            <forward name="EmitirFactura" path="/controller/ActualizaFactura.ed" />
+        </action>
+        
+        <action path="/controller/ActualizarPagos" scope="request" type="cl.ediciones.controller.facturacion.Actualizar_Factura_para_ControlPagoAction">
+            <forward name="ActualizarPagos" path="/WEB-INF/pagos/actualizar_pagos.jsp" />
+        </action>
+        
+        <action path="/controller/ActualizarPagosCompras" scope="request" type="cl.ediciones.controller.pagos.Actualizar_ControlPago_ComprasAction">
+            <forward name="ActualizarPagosCompras" path="/WEB-INF/pagos/actualizar_pagos_compras.jsp" />
+        </action>
+        
+    
+        <action path="/vistas/ModificarFactura" parameter="/WEB-INF/facturacion/modificar_factura.jsp" type="org.apache.struts.actions.ForwardAction"/>
+        <action path="/vistas/NuevaFactura" parameter="/WEB-INF/facturacion/genera_factura.jsp" type="org.apache.struts.actions.ForwardAction"/>
+   
+        <!-- FIN FACTURACIÓN -->
+       
+        <!-- BOLETA -->
+        
+        <action path="/controller/NuevaBoleta" scope="request" type="cl.ediciones.controller.boleta.NuevaBoletaAction">
+            <forward name="NuevaBoleta" path="/WEB-INF/boleta/responde_agregar_boleta.jsp" />
+        </action>
+        
+        <action path="/controller/EmitirBoleta" scope="request" type="cl.ediciones.controller.boleta.Emitir_BoletaAction">
+            <forward name="EmitirBoleta" path="/controller/ActualizaBoleta.ed" />
+        </action>
+        
+        <action path="/controller/ActualizaBoleta" scope="request" type="cl.ediciones.controller.boleta.Actualizar_BoletaAction">
+            <forward name="ActualizaBoleta" path="/WEB-INF/boleta/actualizar_boleta.jsp" />
+        </action>
+        
+        <action path="/controller/ModificarBoleta" type="cl.ediciones.controller.boleta.ModificarBoletaAction">
+            <forward name="ModificarBoleta" path="/controller/ActualizaBoleta.ed" />
+        </action>
+        
+        <action path="/controller/EliminaBoleta" scope="request" type="cl.ediciones.controller.boleta.EliminaBoletaAction">
+            <forward name="EliminaBoleta" path="/controller/ActualizaBoleta.ed" />
+        </action>
+    
+    
+        <action path="/vistas/ModificarBoleta" parameter="/WEB-INF/boleta/modificar_boleta.jsp" type="org.apache.struts.actions.ForwardAction"/>
+        <action path="/vistas/NuevaBoleta" parameter="/WEB-INF/boleta/genera_boleta.jsp" type="org.apache.struts.actions.ForwardAction"/>
+   
+        <!-- FIN BOLETA -->
+        
+        <!-- NOTA DE CREDITO-->
+        
+        <action path="/controller/NuevaNotaCredito" scope="request" type="cl.ediciones.controller.nota_credito.NuevaNotaCreditoAction">
+            <forward name="NuevaNotaCredito" path="/WEB-INF/notacredito/responde_agregar_notacredito.jsp" />
+        </action>
+        
+        <action path="/controller/ActualizaNotaCredito" scope="request" type="cl.ediciones.controller.nota_credito.Actualizar_NotaCreditoAction">
+            <forward name="ActualizaNotaCredito" path="/WEB-INF/notacredito/actualizar_notacredito.jsp" />
+        </action>
+        
+        <action path="/controller/ModificarNotaCredito" type="cl.ediciones.controller.nota_credito.ModificarNotaCreditoAction">
+            <forward name="ModificarNotaCredito" path="/controller/ActualizaNotaCredito.ed" />
+        </action>
+        
+        <action path="/controller/EliminaNotaCredito" scope="request" type="cl.ediciones.controller.nota_credito.EliminaNotaCreditoAction">
+            <forward name="EliminaNotaCredito" path="/controller/ActualizaNotaCredito.ed" />
+        </action>
+    
+    
+        <action path="/vistas/ModificarNotaCredito" parameter="/WEB-INF/notacredito/modificar_notacredito.jsp" type="org.apache.struts.actions.ForwardAction"/>
+        <action path="/vistas/NuevaNotaCredito" parameter="/WEB-INF/notacredito/genera_notacredito.jsp" type="org.apache.struts.actions.ForwardAction"/>
+   
+        <!-- NOTA DE CREDITO-->
+       
+       
+        <!-- TIPO ENVIO-->
+        
+        <action path="/vistas/AgregarTipoEnvio" parameter="/WEB-INF/tipo_envio/agregar_tipo_envio.jsp" type="org.apache.struts.actions.ForwardAction"/>
+   
+        <!-- FIN TIPO ENVIO-->
+       
+       
+        <!-- REGION-->
+        
+        <action path="/vistas/AgregarRegion" parameter="/WEB-INF/region/agregar_region.jsp" type="org.apache.struts.actions.ForwardAction"/>
+        <action path="/vistas/AgregarComuna" parameter="/WEB-INF/comuna/agregar_comuna.jsp" type="org.apache.struts.actions.ForwardAction"/>
+   
+        <!-- FIN REGION-->
+       
+       
+        <!-- INFORMES-->
+        
+        <action path="/controller/GeneraLibroCompras" scope="request" type="cl.ediciones.controller.informes.Genera_Libro_ComprasAction">
+            <forward name="GeneraLibroCompras" path="/WEB-INF/informes/libro_compras.jsp" />
+        </action>
+        
+        <action path="/controller/ListaClientes" scope="request" type="cl.ediciones.controller.informes.ListaClientesAction">
+            <forward name="ListaClientes" path="/WEB-INF/informes/lista_clientes.jsp" />
+        </action>
+        
+        <action path="/controller/ListaPagosClientes" scope="request" type="cl.ediciones.controller.informes.Lista_Pagos_ClientesAction">
+            <forward name="ListaPagosClientes" path="/WEB-INF/informes/lista_pagos_clientes.jsp" />
+        </action>
+        
+        <action path="/controller/ListaPlanCuentasBase" scope="request" type="cl.ediciones.controller.informes.ListaPlanCuentasBaseAction">
+            <forward name="ListaPlanCuentasBase" path="/WEB-INF/informes/lista_plan_cuentas_base.jsp" />
+        </action>
+        
+        <action path="/controller/RankingComparativoVentas" scope="request" type="cl.ediciones.controller.informes.Ranking_Comparativo_VentasAction">
+            <forward name="RankingComparativoVentas" path="/WEB-INF/informes/ranking_comparativo_ventas.jsp" />
+        </action>
+        
+        <action path="/controller/RankingVentasRegion" scope="request" type="cl.ediciones.controller.informes.Ranking_Ventas_RegionAction">
+            <forward name="RankingVentasRegion" path="/WEB-INF/informes/ranking_ventas_region.jsp" />
+        </action>
+        
+        <action path="/controller/VentaPorFactura" scope="request" type="cl.ediciones.controller.informes.Ventas_Por_FacturaAction">
+            <forward name="VentaPorFactura" path="/WEB-INF/informes/venta_por_factura.jsp" />
+        </action>
+        
+        <action path="/controller/RankingAcumuladoClientes" scope="request" type="cl.ediciones.controller.informes.Ranking_Acumulado_ClientesAction">
+            <forward name="RankingAcumuladoClientes" path="/WEB-INF/informes/ranking_acumulado_clientes.jsp" />
+        </action>
+        
+        <action path="/controller/InformeLibroVentas" scope="request" type="cl.ediciones.controller.informes.Informe_Libro_VentasAction">
+            <forward name="InformeLibroVentas" path="/WEB-INF/informes/informe_libro_ventas.jsp" />
+        </action>
+        
+        <action path="/controller/InformeCobranza" scope="request" type="cl.ediciones.controller.informes.Informe_CobranzaAction">
+            <forward name="InformeCobranza" path="/WEB-INF/informes/informe_cobranza.jsp" />
+        </action>
+        
+        <action path="/controller/InformeFlujoCierre" scope="request" type="cl.ediciones.controller.informes.Informe_Flujo_MesAction">
+            <forward name="InformeFlujo" path="/WEB-INF/informes/informe_flujo_mes.jsp" />
+        </action>
+        
+        <action path="/controller/InformeFlujoReal" scope="request" type="cl.ediciones.controller.informes.Informe_Flujo_MesAction">
+            <forward name="InformeFlujo" path="/WEB-INF/informes/informe_flujo_real.jsp" />
+        </action>
+        
+        <action path="/controller/InformeLibroDiario" scope="request" type="cl.ediciones.controller.informes.Informe_Libro_DiarioAction">
+            <forward name="InformeLibroDiario" path="/WEB-INF/informes/informe_libro_diario.jsp" />
+        </action>
+        
+        <action path="/controller/InformeLibroMayor" scope="request" type="cl.ediciones.controller.informes.Informe_Libro_MayorAction">
+            <forward name="InformeLibroMayor" path="/WEB-INF/informes/informe_libro_mayor.jsp" />
+        </action>
+        
+        <action path="/controller/InformeBalance" scope="request" type="cl.ediciones.controller.informes.Informe_BalanceAction">
+            <forward name="InformeBalance" path="/WEB-INF/informes/informe_balance.jsp" />
+        </action>
+       
+        <action path="/controller/InformeCartolaCtaCorriente" scope="request" type="cl.ediciones.controller.informes.Informe_Cartola_Cta_CorrienteAction">
+            <forward name="InformeCartolaCtaCorriente" path="/WEB-INF/informes/informe_cartola_cuenta_corriente.jsp" />
+        </action>
+       
+        
+        <action path="/vistas/SeleccioneAnoRanking" parameter="/WEB-INF/informes/seleccione_ano_ranking.jsp" type="org.apache.struts.actions.ForwardAction"/>
+        <action path="/vistas/SeleccioneAnoRankingRegion" parameter="/WEB-INF/informes/seleccione_ano_ranking_por_region.jsp" type="org.apache.struts.actions.ForwardAction"/>
+        <action path="/vistas/VentaPorFactura" parameter="/WEB-INF/informes/seleccione_mes_ano_ventas_por_factura.jsp" type="org.apache.struts.actions.ForwardAction"/>
+        <action path="/vistas/SeleccioneAnoRankingAcumulado" parameter="/WEB-INF/informes/seleccione_ano_ranking_acumulado.jsp" type="org.apache.struts.actions.ForwardAction"/>
+        <action path="/vistas/SeleccioneMesAnoLibroVentas" parameter="/WEB-INF/informes/seleccione_mes_ano_libro_ventas.jsp" type="org.apache.struts.actions.ForwardAction"/>
+        <action path="/vistas/SeleccioneMesAnoCobranza" parameter="/WEB-INF/informes/seleccione_mes_ano_cobranza.jsp" type="org.apache.struts.actions.ForwardAction"/>
+        <action path="/vistas/SeleccioneMesAnoFlujoCierre" parameter="/WEB-INF/informes/seleccione_mes_ano_flujo_cierre.jsp" type="org.apache.struts.actions.ForwardAction"/>
+        <action path="/vistas/SeleccioneMesAnoFlujoReal" parameter="/WEB-INF/informes/seleccione_mes_ano_flujo_real.jsp" type="org.apache.struts.actions.ForwardAction"/>
+        <action path="/vistas/SeleccioneFechaLibroDiario" parameter="/WEB-INF/informes/seleccione_fecha_libro_diario.jsp" type="org.apache.struts.actions.ForwardAction"/>
+        <action path="/vistas/SeleccioneFechaLibroMayor" parameter="/WEB-INF/informes/seleccione_fecha_libro_mayor.jsp" type="org.apache.struts.actions.ForwardAction"/>
+        <action path="/vistas/SeleccioneFechaBalance" parameter="/WEB-INF/informes/seleccione_fecha_balance.jsp" type="org.apache.struts.actions.ForwardAction"/>
+        <action path="/vistas/SeleccioneFechaCartolaCtaCorriente" parameter="/WEB-INF/informes/seleccione_fecha_cartola_cta_corriente.jsp" type="org.apache.struts.actions.ForwardAction"/>
+        <action path="/vistas/SeleccioneCriteriosPagosClientes" parameter="/WEB-INF/informes/seleccione_criterios_pagos_clientes.jsp" type="org.apache.struts.actions.ForwardAction"/>
+   
+        <!-- FIN INFORMES-->
+       
+       
+        <!-- BANCO-->
+        
+        <action path="/vistas/AgregarBanco" parameter="/WEB-INF/banco/agregar_banco.jsp" type="org.apache.struts.actions.ForwardAction"/>
+        
+        <!-- FIN BANCO-->
+       
+       
+        <!-- PERFIL -->
+        
+        <action path="/vistas/AgregarPerfil" parameter="/WEB-INF/perfil/agregar_perfil.jsp" type="org.apache.struts.actions.ForwardAction"/>
+        <action path="/vistas/AdministrarMenu" parameter="/WEB-INF/perfil/administrar_menu.jsp" type="org.apache.struts.actions.ForwardAction"/>
+        
+        <!-- FIN PERFIL -->
+       
+       
+        <!-- COMPROBANTE -->
+        
+        <action path="/controller/ActualizarComprobante" scope="request" type="cl.ediciones.controller.comprobante.Actualizar_ComprobanteAction">
+            <forward name="ActualizarComprobante" path="/WEB-INF/comprobante/actualizar_comprobante.jsp" />
+        </action>
+        
+        <action path="/vistas/AgregarComprobante" parameter="/WEB-INF/comprobante/agregar_comprobante.jsp" type="org.apache.struts.actions.ForwardAction"/>
+        
+        <!-- FIN COMPROBANTE -->
+       
+       
+        <!-- CARTOLA -->
+        
+        <action path="/controller/AgregarCartola" scope="request" type="cl.ediciones.controller.cartola.Agregar_CartolaAction">
+            <forward name="AgregarCartola" path="/WEB-INF/cartola/agregar_cartola.jsp" />
+        </action>
+        
+        <action path="/controller/ActualizarCartola" scope="request" type="cl.ediciones.controller.cartola.Actualizar_CartolaAction">
+            <forward name="ActualizarCartola" path="/WEB-INF/cartola/actualizar_cartola.jsp" />
+        </action>
+        
+        <action path="/controller/EliminarCartola" scope="request" type="cl.ediciones.controller.cartola.Eliminar_CartolaAction">
+            <forward name="EliminarCartola" path="/controller/ActualizarCartola.ed" />
+        </action>
+        
+        <action path="/vistas/AgregarCartola" parameter="/WEB-INF/cartola/agregar_cartola.jsp" type="org.apache.struts.actions.ForwardAction"/>
+        
+        <!-- FIN CARTOLA -->
+       
+    </action-mappings>
+    
+</struts-config>
