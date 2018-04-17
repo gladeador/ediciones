@@ -168,7 +168,8 @@
         
         <!-- GASTOS -->
         <action path="/controller/AgregarGastos" scope="request" type="cl.ediciones.controller.gastos.Agregar_GastosAction">
-            <forward name="AgregarGastos" path="/WEB-INF/gastos/exito_agregar.jsp" />
+            <!--    <forward name="AgregarGastos" path="/WEB-INF/gastos/exito_agregar.jsp" />-->
+            <forward name="AgregarGastos" path="/WEB-INF/gastos/agregar_gastos.jsp" />
         </action>
         
         <action path="/controller/ModificarGastos" scope="request" type="cl.ediciones.controller.gastos.Modificar_GastosAction">
