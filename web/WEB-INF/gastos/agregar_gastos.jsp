@@ -40,8 +40,6 @@
                 document.getElementById("total_afecto").value = neto_exento;
             }
              function valida_envia() {
-                alert();
-                return;
                 document.formData.submit();
             }
         </script>
