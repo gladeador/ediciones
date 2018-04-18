@@ -21,10 +21,10 @@
         </script>
 
         <script>
-            function tipo_cambio(id_tipo_moneda){
-                if(id_tipo_moneda == 2){
+            function tipo_cambio(id_tipo_moneda) {
+                if (id_tipo_moneda == 2) {
                     document.getElementById("tipocambio").style.display = "";
-                }else{
+                } else {
                     document.getElementById("tipocambio").style.display = "none";
                     document.getElementById("tipo_de_cambio").value = "0";
                     document.getElementById("porsentaje_gastos").value = "0";
@@ -32,33 +32,113 @@
                 }
                 calculaIVA();
             }
-            
-            function calculaIVA(){
+
+            function calculaIVA() {
                 var id_tipo_moneda = document.getElementById("id_tipo_moneda").value;
                 var costo_producto = document.getElementById("costo_producto").value;
                 var stock = document.getElementById("stock").value;
                 var neto = 0;
-                if(id_tipo_moneda == 2){
+                if (id_tipo_moneda == 2) {
                     var tipo_cambio = document.getElementById("tipo_de_cambio").value;
                     var costo_gastos = document.getElementById("costo_gastos").value;
                     var porsentaje_gastos = document.getElementById("porsentaje_gastos").value;
-                    
+
                     var aux = parseFloat(costo_producto) * parseInt(stock);
                     var sub_total = parseFloat(tipo_cambio) * parseFloat(aux);
-                    
+
                     var costo_gastos = parseFloat(sub_total) * (parseFloat(porsentaje_gastos) / 100);
                     document.getElementById("costo_gastos").value = redond(costo_gastos, 0);
-                
+
                     neto = parseFloat(sub_total) + parseFloat(costo_gastos);
-                }else{
+                } else {
                     neto = parseFloat(costo_producto) * parseInt(stock);
                 }
-                var iva = redond((parseFloat(neto) * 0.19),0);
+                var iva = redond((parseFloat(neto) * 0.19), 0);
                 var total = parseFloat(neto) + parseFloat(iva);
                 document.getElementById("neto").value = neto;
                 document.getElementById("iva").value = iva;
                 document.getElementById("total").value = total;
             }
+            function agrega_producto_Stock() {
+                var id_producto = document.getElementById("id_producto").value;
+                var rut = document.getElementById("rut").value;
+                var id_tipo_moneda = document.getElementById("id_tipo_moneda").value;
+                var id_tipo_documento = document.getElementById("id_tipo_documento").value;
+                var costo_producto = document.getElementById("costo_producto").value;
+                var stock = document.getElementById("stock").value;
+                var neto = document.getElementById("neto").value;
+                var iva = document.getElementById("iva").value;
+                var total = document.getElementById("total").value;
+                var num_cuenta = document.getElementById("num_cuenta").value;
+
+
+                var ok = true;
+                var msg = "los Siguientes Campos no Pueden estar Vacios:\n\n";
+                if (id_producto == 0)
+                {
+                    msg += "- Ingrese el producto\n";
+                    ok = false;
+                }
+
+                if (rut == 0)
+                {
+                    msg += "- Ingrese el Proveedor\n";
+                    ok = false;
+                }
+
+                if (id_tipo_moneda == 0)
+                {
+                    msg += "- Ingrese el Tipo de Moneda\n";
+                    ok = false;
+                }
+
+                if (id_tipo_documento == 0)
+                {
+                    msg += "- Ingrese el Tipo de Documento\n";
+                    ok = false;
+                }
+                if (costo_producto == 0)
+                {
+                    msg += "- Ingrese el Costo del Producto\n";
+                    ok = false;
+                }
+                if (stock == 0)
+                {
+                    msg += "- Ingrese el Stock\n";
+                    ok = false;
+                }
+                if (neto == 0)
+                {
+                    msg += "- Ingrese el Neto\n";
+                    ok = false;
+                }
+                if (iva == 0)
+                {
+                    msg += "- Ingrese el IVA\n";
+                    ok = false;
+                }
+                if (total == 0)
+                {
+                    msg += "- Ingrese el Total\n";
+                    ok = false;
+                }
+                if (num_cuenta == 0)
+                {
+                    msg += "- Ingrese la Cuenta Contable\n";
+                    ok = false;
+                }
+
+                if (ok == false) {
+
+                    alert(msg);
+                    return;
+                } else {
+                    alert("Exito al Agregar el Stock al producto");
+                    document.formData.submit();
+                }
+
+            }
+
         </script>
 
     </head>
@@ -67,7 +147,7 @@
         Fecha_Actual fecha = (Fecha_Actual) sesion.getAttribute("fecha_actual");
     %>
     <body>
-        <form name="formData" action="<%=request.getContextPath()%>/controller/AgregarStockProducto.ed">
+        <form name="formData" method="post" action="<%=request.getContextPath()%>/controller/AgregarStockProducto.ed">
             <table width="100%">
                 <tr>
                     <th class="menuSuperior">Agregar Stock Productos</th>
@@ -83,7 +163,8 @@
                                 <tr>
                                     <th class="specalt" valign="top">Producto </th>
                                     <td valign="top">
-                                        <select name="id_producto" class="cuadroTexto">
+                                        <select name="id_producto" id="id_producto" class="cuadroTexto">
+                                            <option value='0'>--Seleccione Producto--</option>
                                             <%
                                                 ProductosDAO proDAO = new ProductosDAO();
                                                 ArrayList lista_productos = proDAO.traerTodos_Productos();
@@ -99,7 +180,8 @@
                                     </td>
                                     <th class="specalt" valign="top">Proveedores </th>
                                     <td valign="top">
-                                        <select name="rut" class="cuadroTexto">
+                                        <select name="rut" id="rut" class="cuadroTexto">
+                                            <option value='0'>--Seleccione Proveedor--</option>
                                             <%
                                                 ProveedoresDAO provDAO = new ProveedoresDAO();
                                                 ArrayList lista_proveedores = provDAO.traerTodos_Proveedores_Productos();
@@ -118,7 +200,7 @@
                                     <th class="specalt" valign="top">Tipo de Moneda </th>
                                     <td valign="top">
                                         <select name="id_tipo_moneda" class="cuadroTexto" id="id_tipo_moneda" onchange="javascript:tipo_cambio(this.value);">
-                                            <option>-- Seleccione Tipo de Moneda --</option>
+                                            <option value="0">-- Seleccione Tipo de Moneda --</option>
                                             <%
                                                 Tipo_MonedaDAO t_mDAO = new Tipo_MonedaDAO();
                                                 ArrayList lista_monedas = t_mDAO.traerTodos_Tipo_Moneda();
@@ -135,29 +217,30 @@
                                 </tr>
                                 <tr>
                                     <th class="specalt" valign="top">Costo del producto<br>Unitario </th>
-                                    <td valign="top"><input name="costo_producto" type="text" class="cuadroTexto" id="costo_producto" onkeyup="this.value = this.value.replace (/[^0-9.]/, '');" size="5" maxlength="7" value="0" onchange="javascript:calculaIVA();"></td>
+                                    <td valign="top"><input name="costo_producto" type="text" class="cuadroTexto" id="costo_producto" onkeyup="this.value = this.value.replace(/[^0-9.]/, '');" size="5" maxlength="7" value="0" onchange="javascript:calculaIVA();"></td>
                                 </tr>
                                 <tr>
                                     <th class="specalt" valign="top">Stock </th>
-                                    <td valign="top"><input name="stock" type="text" class="cuadroTexto" id="stock" onkeyup="this.value = this.value.replace (/[^0-9]/, '');" size="5" maxlength="7" value="0" onchange="javascript:calculaIVA();"></td>
+                                    <td valign="top"><input name="stock" type="text" class="cuadroTexto" id="stock" onkeyup="this.value = this.value.replace(/[^0-9]/, '');" size="5" maxlength="7" value="0" onchange="javascript:calculaIVA();"></td>
                                 </tr>
                                 <tr>
                                     <th class="specalt" valign="top">Fecha Ingreso </th>
                                     <td valign="middle">
                                         <input name="fecha_ingreso" type="text" class="cuadroTexto" id="fecha_ingreso" align="left" value="<%=fecha.getFecha_actualStr()%>" readonly>
-                                        <button onclick="javascript:displayCalendar(document.forms[0].fecha_ingreso,'dd/mm/yyyy',this)" type="button"><img src="<%=request.getContextPath()%>/images/iconos/cal.png" border="0" width="20" height="20" title="Calendario"></button>
+                                        <button onclick="javascript:displayCalendar(document.forms[0].fecha_ingreso, 'dd/mm/yyyy', this)" type="button"><img src="<%=request.getContextPath()%>/images/iconos/cal.png" border="0" width="20" height="20" title="Calendario"></button>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th class="specalt" valign="top">Nº Guia de Despacho </th>
-                                    <td valign="top"><input name="num_guia_despacho" type="text" class="cuadroTexto" id="num_guia_despacho" onkeyup="this.value = this.value.replace (/[^0-9]/, '');" size="5" maxlength="7" value="0"></td>
+                                    <td valign="top"><input name="num_guia_despacho" type="text" class="cuadroTexto" id="num_guia_despacho" onkeyup="this.value = this.value.replace(/[^0-9]/, '');" size="5" maxlength="7" value="0"></td>
                                 </tr>
                                 <tr>
                                     <th class="specalt" valign="top">Nº Factura </th>
-                                    <td valign="top"><input name="num_factura" type="text" class="cuadroTexto" id="num_factura" onkeyup="this.value = this.value.replace (/[^0-9]/, '');" size="5" maxlength="7" value="0"></td>
+                                    <td valign="top"><input name="num_factura" type="text" class="cuadroTexto" id="num_factura" onkeyup="this.value = this.value.replace(/[^0-9]/, '');" size="5" maxlength="7" value="0"></td>
                                     <th class="specalt" valign="top">Tipo de Documento </th>
                                     <td valign="top">
                                         <select name="id_tipo_documento" id="id_tipo_documento" class="cuadroTexto">
+                                            <option value='0'>--Seleccione Tipo Dcoumento--</option>
                                             <%
                                                 Tipo_DocumentoDAO tdDAO = new Tipo_DocumentoDAO();
                                                 ArrayList lista_tipos = tdDAO.traerTodos_Tipo_Documento();
@@ -185,11 +268,11 @@
                                 <table width="100%">
                                     <tr>
                                         <th class="specalt" valign="top">Tipo de Cambio </th>
-                                        <td valign="top"><input name="tipo_de_cambio" type="text" class="cuadroTexto" id="tipo_de_cambio" onkeyup="this.value = this.value.replace (/[^0-9.]/, '');" size="5" maxlength="7" value="0" onchange="javascript:calculaIVA();"></td>
+                                        <td valign="top"><input name="tipo_de_cambio" type="text" class="cuadroTexto" id="tipo_de_cambio" onkeyup="this.value = this.value.replace(/[^0-9.]/, '');" size="5" maxlength="7" value="0" onchange="javascript:calculaIVA();"></td>
                                     </tr>
                                     <tr>
                                         <th class="specalt" valign="top">Porsentaje de Gastos </th>
-                                        <td valign="top"><input name="porsentaje_gastos" type="text" class="cuadroTexto" id="porsentaje_gastos" onkeyup="this.value = this.value.replace (/[^0-9.]/, '');" size="3" maxlength="4" value="0" onchange="javascript:calculaIVA();"> %</td>
+                                        <td valign="top"><input name="porsentaje_gastos" type="text" class="cuadroTexto" id="porsentaje_gastos" onkeyup="this.value = this.value.replace(/[^0-9.]/, '');" size="3" maxlength="4" value="0" onchange="javascript:calculaIVA();"> %</td>
                                         <th class="specalt" valign="top">Costo de Gastos </th>
                                         <td valign="top"><input name="costo_gastos" type="text" class="cuadroTexto" id="costo_gastos" size="5" maxlength="7" value="0" readonly="true"></td>
                                     </tr>
@@ -218,6 +301,7 @@
                                     <th class="specalt" valign="top">Cuenta Base </th>
                                     <td valign="top">
                                         <select name="num_cuenta" id="num_cuenta" class="cuadroTexto">
+                                            <option value='0'>--Seleccione Cuenta Contable--</option>
                                             <%
                                                 Cuentas_BaseDAO cbDAO = new Cuentas_BaseDAO();
                                                 ArrayList cuentas = cbDAO.traerTodos_Cuentas_Base();
@@ -241,7 +325,8 @@
             <table align="center">
                 <tr>
                     <th><input name="b_enviar" type="reset" id="b_enviar" class="botones" value="Limpiar"></th>
-                    <th><input name="b_enviar" type="submit" id="b_enviar" class="botones" onclick="javascript:valida_envia();" value="Agregar"></th>
+                    <th><a href="javascript:agrega_producto_Stock();"><img src="<%=request.getContextPath()%>/images/iconos/agregar.png" border="0" width="30" height="30" title="Agregar"></a>
+                        <!--    <th><input name="b_enviar" type="submit" id="b_enviar" class="botones" onclick="javascript:agrega_procto_Stock();" value="Agregar"></th>-->
                 </tr>
             </table>
         </form>
