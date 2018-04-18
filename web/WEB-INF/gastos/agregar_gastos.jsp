@@ -21,26 +21,68 @@
         </script>
 
         <script>
-            function calculaIVA(){
+            function calculaIVA() {
                 var neto_afecto = document.getElementById("neto_afecto").value;
-                if(neto_afecto == 0){
+                if (neto_afecto == 0) {
                     return;
                 }
-                var iva_afecto = redond((parseInt(neto_afecto) * 0.19),0);
+                var iva_afecto = redond((parseInt(neto_afecto) * 0.19), 0);
                 var total_afecto = parseInt(neto_afecto) + parseInt(iva_afecto);
                 document.getElementById("iva_afecto").value = iva_afecto;
                 document.getElementById("total_afecto").value = total_afecto;
                 document.getElementById("neto_exento").value = 0;
             }
-            
-            function calcula_exento(){
+
+            function calcula_exento() {
                 var neto_exento = document.getElementById("neto_exento").value;
                 document.getElementById("neto_afecto").value = 0;
                 document.getElementById("iva_afecto").value = 0;
                 document.getElementById("total_afecto").value = neto_exento;
             }
-             function valida_envia() {
+            function valida_envia() {
                 document.formData.submit();
+            }
+
+            function agrega_gasto() {
+                var id_tipo_documento = document.getElementById("id_tipo_documento").value;
+                var rut_proveedor = document.getElementById("rut_proveedor").value;
+                var num_cuenta = document.getElementById("num_cuenta").value;
+                var id_forma_pago = document.getElementById("id_forma_pago").value;
+
+                var ok = true;
+                var msg = "los Siguientes Campos no Pueden estar Vacios:\n\n";
+                if (id_tipo_documento == 0)
+                {
+                    msg += "- Ingrese el producto\n";
+                    ok = false;
+                }
+
+                if (rut_proveedor == 0)
+                {
+                    msg += "- Ingrese el Proveedor\n";
+                    ok = false;
+                }
+
+                if (num_cuenta == 0)
+                {
+                    msg += "- Ingrese el Tipo de Moneda\n";
+                    ok = false;
+                }
+
+                if (id_forma_pago == 0)
+                {
+                    msg += "- Ingrese el Tipo de Documento\n";
+                    ok = false;
+                }
+                if (ok == false) {
+
+                    alert(msg);
+                    return;
+                } else {
+                    alert("Exito al Agregar el Gasto");
+                    document.formData.submit();
+                }
+
             }
         </script>
 
@@ -66,6 +108,7 @@
                         <th class="specalt" valign="top">Tipo de Documento </th>
                         <td valign="top">
                             <select name="id_tipo_documento" id="id_tipo_documento" class="cuadroTexto">
+                                <option value="0">--Ingrese Tipo de Documento--</option>
                                 <%
                                     Tipo_DocumentoDAO tdDAO = new Tipo_DocumentoDAO();
                                     ArrayList lista_tipos = tdDAO.traerTodos_Tipo_Documento();
@@ -84,11 +127,12 @@
                         <th class="specalt" valign="top">Fecha Gasto </th>
                         <td valign="top">
                             <input name="fecha_gasto" type="text" class="cuadroTexto" id="fecha_gasto" size="10" value="<%=fecha.getFecha_actualStr()%>" readonly>
-                            <button onclick="javascript:displayCalendar(document.forms[0].fecha_gasto,'dd/mm/yyyy',this)" type="button"><img src="<%=request.getContextPath()%>/images/iconos/cal.png" border="0" width="20" height="20" title="Calendario"></button>
+                            <button onclick="javascript:displayCalendar(document.forms[0].fecha_gasto, 'dd/mm/yyyy', this)" type="button"><img src="<%=request.getContextPath()%>/images/iconos/cal.png" border="0" width="20" height="20" title="Calendario"></button>
                         </td>
                         <th class="specalt" valign="top">Proveedores </th>
                         <td valign="top">
                             <select name="rut_proveedor" id="rut_proveedor" class="cuadroTexto">
+                                <option value="0">--Ingrese Tipo de Proveedor--</option>
                                 <%
                                     ProveedoresDAO provDAO = new ProveedoresDAO();
                                     ArrayList lista_proveedores = provDAO.traerTodos_Proveedores_Gastos();
@@ -132,6 +176,7 @@
                         <th class="specalt" valign="top">Cuenta Base </th>
                         <td valign="top">
                             <select name="num_cuenta" id="num_cuenta" class="cuadroTexto">
+                                <option value="0">--Ingrese Cuenta Contables--</option>
                                 <%
                                     Cuentas_BaseDAO cbDAO = new Cuentas_BaseDAO();
                                     ArrayList cuentas = cbDAO.traerTodos_Cuentas_Base();
@@ -150,6 +195,7 @@
                         <th class="specalt" valign="top">Forma de Pago </th>
                         <td valign="top">
                             <select name="id_forma_pago" id="id_forma_pago" class="cuadroTexto">
+                                <option value="0">--Ingrese Forma de Pago--</option>
                                 <%
                                     Forma_Pago_GastosDAO fpgDAO = new Forma_Pago_GastosDAO();
                                     ArrayList lista_forma_pago = fpgDAO.traerTodos_Forma_Pago();
@@ -170,7 +216,8 @@
             <table align="center">
                 <tr>
                     <th><input name="b_enviar" type="reset" id="b_enviar" class="botones" value="Limpiar"></th>
-                    <th><input name="b_enviar" type="submit" id="b_enviar" class="botones" onclick="javascript:valida_envia();" value="Agregar"></th>
+                    <th><a href="javascript:agrega_gasto();"><img src="<%=request.getContextPath()%>/images/iconos/agregar.png" border="0" width="30" height="30" title="Agregar"></a>
+                        <!--    <th><input name="b_enviar" type="submit" id="b_enviar" class="botones" onclick="javascript:valida_envia();" value="Agregar"></th>-->
                 </tr>
             </table>
         </form>
