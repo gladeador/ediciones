@@ -35,7 +35,7 @@ public class Stock_ProductoDAO {
                 stock.setObservaciones(tabla.getString("observaciones"));
                 stock.setFecha_ingreso(tabla.getDate("fecha_ingreso"));
                 stock.setCosto_producto(tabla.getFloat("costo_producto"));
-                stock.setTipo_de_cambio(tabla.getInt("tipo_de_cambio"));
+                stock.setTipo_de_cambio(tabla.getFloat("tipo_de_cambio"));
                 stock.setPorsentaje_gastos(tabla.getFloat("porsentaje_gastos"));
                 stock.setCosto_gastos(tabla.getFloat("costo_gastos"));
                 stock.setNum_guia_despacho(tabla.getInt("num_guia_despacho"));
@@ -69,6 +69,8 @@ public class Stock_ProductoDAO {
             ps.close();
         } catch (SQLException ex) {
             ex.printStackTrace();
+            throw new RuntimeException(ex);
+            
         }
         con.close();
         return stock;
@@ -79,26 +81,27 @@ public class Stock_ProductoDAO {
         Connection con = conDAO.obtenerConexion();
         PreparedStatement ps;
         try {
-            ps = con.prepareStatement("insert into stock (observaciones, stock, rut_proveedor, id_productos, costo_producto, tipo_de_cambio, porsentaje_gastos, costo_gastos, fecha_ingreso, num_guia_despacho, num_factura, estado, id_tipo_moneda, neto, iva, total, num_cuenta) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'R', ?, ?, ?, ?, ?)");
+            ps = con.prepareStatement("insert into stock (observaciones, stock, rut_proveedor, id_productos, costo_producto, tipo_de_cambio, id_tipo_documento, porsentaje_gastos, costo_gastos, fecha_ingreso, num_guia_despacho, num_factura, estado, id_tipo_moneda, neto, iva, total, num_cuenta) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'R', ?, ?, ?, ?, ?)");
             ps.setString(1, stock.getObservaciones());
             ps.setInt(2, stock.getStock());
             ps.setInt(3, stock.getProveedores().getRut());
             ps.setInt(4, stock.getProductos().getId_productos());
             ps.setFloat(5, stock.getCosto_producto());
-            ps.setInt(6, stock.getTipo_de_cambio());
-            ps.setFloat(7, stock.getPorsentaje_gastos());
-            ps.setFloat(8, stock.getCosto_gastos());
+            ps.setFloat(6, stock.getTipo_de_cambio());
+            ps.setString(7, stock.getTipo_documento().getId_tipo_documento());
+            ps.setFloat(8, stock.getPorsentaje_gastos());
+            ps.setFloat(9, stock.getCosto_gastos());
 
             java.sql.Date fecha1 = new java.sql.Date(stock.getFecha_ingreso().getTime());
-            ps.setDate(9, fecha1);
+            ps.setDate(10, fecha1);
 
-            ps.setInt(10, stock.getNum_guia_despacho());
-            ps.setInt(11, stock.getNum_factura());
-            ps.setInt(12, stock.getTipo_moneda().getId_tipo_moneda());
-            ps.setFloat(13, stock.getNeto());
-            ps.setFloat(14, stock.getIva());
-            ps.setFloat(15, stock.getTotal());
-            ps.setString(16, stock.getCuentas_base().getNum_cuenta());
+            ps.setInt(11, stock.getNum_guia_despacho());
+            ps.setInt(12, stock.getNum_factura());
+            ps.setInt(13, stock.getTipo_moneda().getId_tipo_moneda());
+            ps.setFloat(14, stock.getNeto());
+            ps.setFloat(15, stock.getIva());
+            ps.setFloat(16, stock.getTotal());
+            ps.setString(17, stock.getCuentas_base().getNum_cuenta());
 
             ps.executeUpdate();
 
@@ -106,6 +109,7 @@ public class Stock_ProductoDAO {
 
         } catch (SQLException ex) {
             ex.printStackTrace();
+            throw new RuntimeException(ex);
         }
         con.close();
     }

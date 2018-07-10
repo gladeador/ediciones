@@ -8,7 +8,8 @@ public class Stock_Producto {
     private String observaciones;
     private int stock;
     private float costo_producto;
-    private int tipo_de_cambio;
+    private float tipo_de_cambio;
+//    private float tipo_de_cambio2;
     private float porsentaje_gastos;
     private float costo_gastos;
     private java.util.Date fecha_ingreso;
@@ -25,6 +26,14 @@ public class Stock_Producto {
     private Cuentas_Base cuentas_base;
     private Tipo_Documento tipo_documento;
 
+    public float getTipo_de_cambio() {
+        return tipo_de_cambio;
+    }
+
+    public void setTipo_de_cambio(float tipo_de_cambio) {
+        this.tipo_de_cambio = tipo_de_cambio;
+    }
+    
     public String getObservaciones() {
         return observaciones;
     }
@@ -73,13 +82,13 @@ public class Stock_Producto {
         this.costo_producto = costo_producto;
     }
 
-    public int getTipo_de_cambio() {
-        return tipo_de_cambio;
-    }
-
-    public void setTipo_de_cambio(int tipo_de_cambio) {
-        this.tipo_de_cambio = tipo_de_cambio;
-    }
+//    public int getTipo_de_cambio() {
+//        return tipo_de_cambio;
+//    }
+//
+//    public void setTipo_de_cambio(int tipo_de_cambio) {
+//        this.tipo_de_cambio = tipo_de_cambio;
+//    }
 
     public float getPorsentaje_gastos() {
         return porsentaje_gastos;

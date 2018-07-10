@@ -284,15 +284,15 @@
                             <table>
                                 <tr>
                                     <th class="specalt" valign="top">Neto </th>
-                                    <td valign="top"><input name="neto" type="text" class="cuadroTexto" id="neto" size="5" value="0" readonly="true"></td>
+                                    <td valign="top"><input name="neto" type="text" class="cuadroTexto" id="neto" size="20" value="0" readonly="true"></td>
                                 </tr>
                                 <tr>
                                     <th class="specalt" valign="top">Iva </th>
-                                    <td valign="top"><input name="iva" type="text" class="cuadroTexto" id="iva" size="5" value="0" readonly="true"></td>
+                                    <td valign="top"><input name="iva" type="text" class="cuadroTexto" id="iva" size="20" value="0" readonly="true"></td>
                                 </tr>
                                 <tr>
                                     <th class="specalt" valign="top">Total </th>
-                                    <td valign="top"><input name="total" type="text" class="cuadroTexto" id="total" size="5" value="0" readonly="true"></td>
+                                    <td valign="top"><input name="total" type="text" class="cuadroTexto" id="total" size="20" value="0" readonly="true"></td>
                                 </tr>
                             </table>
                             <br>

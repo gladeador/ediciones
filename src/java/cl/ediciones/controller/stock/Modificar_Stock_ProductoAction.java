@@ -35,7 +35,7 @@ public class Modificar_Stock_ProductoAction extends Action {
         stock_pro.setId_stock(Integer.parseInt(id_stock));
         stock_pro.setStock(Integer.parseInt(stock));
         stock_pro.setCosto_producto(Float.parseFloat(costo_producto));
-        stock_pro.setTipo_de_cambio(Integer.parseInt(tipo_de_cambio));
+        stock_pro.setTipo_de_cambio(Float.parseFloat(tipo_de_cambio));
         stock_pro.setPorsentaje_gastos(Integer.parseInt(porsentaje_gastos));
         stock_pro.setCosto_gastos(Float.parseFloat(costo_gastos));
         stock_pro.setFecha_ingreso(FechaStr.stringToDate(fecha_ingreso));

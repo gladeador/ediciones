@@ -4,6 +4,7 @@ import cl.ediciones.model.Cuentas_Base;
 import cl.ediciones.model.Productos;
 import cl.ediciones.model.Proveedores;
 import cl.ediciones.model.Stock_Producto;
+import cl.ediciones.model.Tipo_Documento;
 import cl.ediciones.model.Tipo_Moneda;
 import cl.ediciones.model.dao.Stock_ProductoDAO;
 import cl.ediciones.util.FechaStr;
@@ -22,6 +23,7 @@ public class Agregar_Stock_ProductoAction extends Action {
         String rut = request.getParameter("rut");
         String stock = request.getParameter("stock");
         String id_tipo_moneda = request.getParameter("id_tipo_moneda");
+        String id_tipo_documento = request.getParameter("id_tipo_documento");
         String observaciones = request.getParameter("observaciones");
         String costo_producto = request.getParameter("costo_producto");
         String tipo_de_cambio = request.getParameter("tipo_de_cambio");
@@ -39,7 +41,7 @@ public class Agregar_Stock_ProductoAction extends Action {
 
         stock_pro.setStock(Integer.parseInt(stock));
         stock_pro.setCosto_producto(Float.parseFloat(costo_producto));
-        stock_pro.setTipo_de_cambio(Integer.parseInt(tipo_de_cambio));
+        stock_pro.setTipo_de_cambio(Float.parseFloat(tipo_de_cambio));
         stock_pro.setPorsentaje_gastos(Float.parseFloat(porsentaje_gastos));
         stock_pro.setCosto_gastos(Float.parseFloat(costo_gastos));
         stock_pro.setFecha_ingreso(FechaStr.stringToDate(fecha_ingreso));
@@ -53,6 +55,10 @@ public class Agregar_Stock_ProductoAction extends Action {
         Productos productos = new Productos();
         productos.setId_productos(Integer.parseInt(id_producto));
         stock_pro.setProductos(productos);
+        
+        Tipo_Documento tipo_documento=new Tipo_Documento();
+        tipo_documento.setId_tipo_documento(id_tipo_documento);
+        stock_pro.setTipo_documento(tipo_documento);
 
         Proveedores proveedores = new Proveedores();
         proveedores.setRut(Integer.parseInt(rut));
